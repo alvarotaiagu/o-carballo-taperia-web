@@ -33,6 +33,20 @@ const splitTargets = document.querySelectorAll("[data-split-word]");
 const splitMap = new Map();
 splitTargets.forEach((el) => splitMap.set(el, splitWords(el)));
 
+/* ---------- Blur-up de fotografías (estado de carga, no decoración —
+   corre siempre, sin depender de preferencias de motion/puntero) ---------- */
+function initLqipReveal() {
+  document.querySelectorAll(".lqip-img").forEach((img) => {
+    const reveal = () => img.classList.add("is-loaded");
+    if (img.complete && img.naturalWidth > 0) {
+      reveal();
+    } else {
+      img.addEventListener("load", reveal, { once: true });
+    }
+  });
+}
+initLqipReveal();
+
 /* ---------- Hero: escena de sendero con veneras y flechas de señalización
    (ver js/scene-camino.js). Solo se activa con motion permitido y si el
    canvas 2D existe; si no, el degradado azul de fondo del propio .hero se
@@ -434,7 +448,7 @@ function runSectionReveals() {
       : null;
     const blocks = group.querySelectorAll("p");
     const cards = group.querySelectorAll(
-      ".etapa-stop, .carta-stamp, .cocina-tile, .reconocimientos-panel, .clock-card, .info-list li, .map-card"
+      ".etapa-stop, .carta-stamp, .cocina-tile, .reconocimientos-panel, .clock-card, .info-list li, .map-card, .photo-frame"
     );
     const rows = group.querySelectorAll(".hours-list li");
 
@@ -575,29 +589,50 @@ function initHeroTilt() {
   });
 }
 
-/* ---------- Cursor personalizado (solo puntero fino) ---------- */
+/* ---------- Cursor personalizado (solo puntero fino) ----------
+   Anillo + punto central, ambos con mix-blend-mode: difference (ver CSS)
+   para que se vean sobre cualquier fondo, claro u oscuro, sin necesidad de
+   detectar la sección por JS. */
 function initCustomCursor() {
   const ring = document.querySelector(".cursor-ring");
-  if (!ring) return;
+  const dot = document.querySelector(".cursor-dot");
+  if (!ring || !dot) return;
   document.body.classList.add("custom-cursor-active");
 
-  const moveX = gsap.quickTo(ring, "x", { duration: 0.35, ease: "power3" });
-  const moveY = gsap.quickTo(ring, "y", { duration: 0.35, ease: "power3" });
+  const moveRingX = gsap.quickTo(ring, "x", { duration: 0.35, ease: "power3" });
+  const moveRingY = gsap.quickTo(ring, "y", { duration: 0.35, ease: "power3" });
+  const moveDotX = gsap.quickTo(dot, "x", { duration: 0.12, ease: "power3" });
+  const moveDotY = gsap.quickTo(dot, "y", { duration: 0.12, ease: "power3" });
 
   function onMove(e) {
     ring.classList.add("is-visible");
-    moveX(e.clientX);
-    moveY(e.clientY);
+    dot.classList.add("is-visible");
+    moveRingX(e.clientX);
+    moveRingY(e.clientY);
+    moveDotX(e.clientX);
+    moveDotY(e.clientY);
   }
   window.addEventListener("pointermove", onMove, { passive: true });
 
   document.querySelectorAll("a, button, [tabindex], .carta-stamp, .cocina-tile, .etapa-stop").forEach((el) => {
-    el.addEventListener("mouseenter", () => ring.classList.add("is-hover"));
-    el.addEventListener("mouseleave", () => ring.classList.remove("is-hover"));
+    el.addEventListener("mouseenter", () => {
+      ring.classList.add("is-hover");
+      dot.classList.add("is-hover");
+    });
+    el.addEventListener("mouseleave", () => {
+      ring.classList.remove("is-hover");
+      dot.classList.remove("is-hover");
+    });
   });
 
-  window.addEventListener("blur", () => ring.classList.remove("is-visible"));
-  document.addEventListener("mouseleave", () => ring.classList.remove("is-visible"));
+  window.addEventListener("blur", () => {
+    ring.classList.remove("is-visible");
+    dot.classList.remove("is-visible");
+  });
+  document.addEventListener("mouseleave", () => {
+    ring.classList.remove("is-visible");
+    dot.classList.remove("is-visible");
+  });
 }
 
 /* Actualiza medidas de ScrollTrigger cuando las fuentes/el layout se

@@ -9,7 +9,7 @@
 <link rel="icon" href="assets/img/logo/icon-96.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/logo/icon-180.png">
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#1F3F5C">
+<meta name="theme-color" content="#17130D">
 
 <meta property="og:type" content="restaurant">
 <meta property="og:site_name" content="O Carballo Tapería">
@@ -32,7 +32,7 @@
   "name": "O Carballo Tapería",
   "image": "https://alvarotaiagu.github.io/o-carballo-taperia-web/assets/img/web/og-image.jpg",
   "url": "https://alvarotaiagu.github.io/o-carballo-taperia-web/",
-  "telephone": "+34690020286",
+  "telephone": "+34881302243",
   "email": "manuelfrala@gmail.com",
   "servesCuisine": ["Gallega", "Tapas", "Casera"],
   "address": {
@@ -44,6 +44,17 @@
     "addressCountry": "ES"
   },
   "menu": "https://alvarotaiagu.github.io/o-carballo-taperia-web/#carta",
+  "priceRange": "20€-30€",
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Terraza", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Opciones vegetarianas", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Música en directo", "value": true }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "637"
+  },
   "openingHoursSpecification": [
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "09:00", "closes": "23:00" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "09:00", "closes": "23:00" },
@@ -51,7 +62,6 @@
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "01:00" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "10:00", "closes": "23:00" }
   ],
-  "award": "TripAdvisor Travellers' Choice",
   "sameAs": [
     "https://www.instagram.com/ocarballotaperia/",
     "https://www.facebook.com/p/O-Carballo-Taperia-61583809132178/",
@@ -64,28 +74,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=3">
 <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js" defer></script>
+<noscript><style>.lqip-img { opacity: 1 !important; }</style></noscript>
 </head>
 <body>
 <a class="skip-link" href="#contido">Ir al contenido</a>
 <div class="scroll-progress" aria-hidden="true"><span class="scroll-progress-bar"></span></div>
 <div class="grain" aria-hidden="true"></div>
 <div class="cursor-ring" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
 
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="#top" aria-label="O Carballo Tapería, ir al inicio">
-      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-        <circle cx="16" cy="16" r="15" fill="#1F3F5C"/>
-        <path d="M16 16.4V4" stroke="#F6F0E4" stroke-width="1.4" stroke-linecap="round"/>
-        <ellipse cx="13.4" cy="9" rx="2.6" ry="3.4" fill="#F6F0E4"/>
-        <ellipse cx="18.6" cy="9" rx="2.6" ry="3.4" fill="#F6F0E4"/>
-        <ellipse cx="13.4" cy="6.4" rx="2.3" ry="3" fill="#F6F0E4"/>
-        <ellipse cx="18.6" cy="6.4" rx="2.3" ry="3" fill="#F6F0E4"/>
-        <path d="M6 22a10 10 0 0 1 20 0Z" fill="#D9A21B" stroke="#14293C" stroke-width="1"/>
-        <path d="M16 22V13.5M16 13.5 11 22M16 13.5l-3.2 8.5M16 13.5l3.2 8.5M16 13.5 21 22" stroke="#14293C" stroke-width="0.9" fill="none"/>
-      </svg>
+      <img class="brand-mark" src="assets/img/logo/mark-ink.png" alt="" width="30" height="30">
       <span>O Carballo <em>Tapería</em></span>
     </a>
 
@@ -113,7 +116,7 @@
       <li><a href="#etapa"><span class="overlay-num">01</span><span class="overlay-label">La última etapa</span></a></li>
       <li><a href="#carta"><span class="overlay-num">02</span><span class="overlay-label">La carta</span></a></li>
       <li><a href="#cocina"><span class="overlay-num">03</span><span class="overlay-label">Cocina de mercado</span></a></li>
-      <li><a href="#reconocimientos"><span class="overlay-num">04</span><span class="overlay-label">Reconocimientos</span></a></li>
+      <li><a href="#reconocimientos"><span class="overlay-num">04</span><span class="overlay-label">Reseñas</span></a></li>
       <li><a href="#encuentranos"><span class="overlay-num">05</span><span class="overlay-label">Encuéntranos</span></a></li>
     </ol>
     <a class="overlay-whatsapp" href="https://wa.me/34690020286" target="_blank" rel="noopener noreferrer">
@@ -144,9 +147,9 @@
         </div>
         <div class="hero-meta">
           <p class="hero-note"><iconify-icon icon="solar:chef-hat-linear" aria-hidden="true"></iconify-icon> Cocina casera, según el mercado</p>
-          <a class="hero-award" href="https://www.tripadvisor.es/Restaurant_Review-g1064050-d34619235-Reviews-O_Carballo_Taperia-Oroso_Province_of_A_Coruna_Galicia.html" target="_blank" rel="noopener noreferrer">
-            <iconify-icon icon="simple-icons:tripadvisor" aria-hidden="true"></iconify-icon>
-            <span>Travellers' Choice en TripAdvisor</span>
+          <a class="hero-award" href="https://www.google.com/maps/search/?api=1&amp;query=O+Carballo+Taper%C3%ADa%2C+Avenida+da+Grabanxa+29%2C+15888+Sig%C3%BCeiro" target="_blank" rel="noopener noreferrer">
+            <iconify-icon icon="logos:google-icon" aria-hidden="true"></iconify-icon>
+            <span>4,9 · 637 reseñas en Google</span>
           </a>
         </div>
       </div>
@@ -198,25 +201,31 @@
           <p>La catedral, al final de la última etapa.</p>
         </div>
       </div>
+
+      <figure class="photo-frame etapa-photo">
+        <span class="lqip-bg" aria-hidden="true" style="background-image:url('assets/img/photos/fraga-robles-lqip.jpg')"></span>
+        <img class="lqip-img" src="assets/img/photos/fraga-robles-800.jpg" srcset="assets/img/photos/fraga-robles-800.jpg 800w, assets/img/photos/fraga-robles-1400.jpg 1400w" sizes="(max-width: 900px) 90vw, 68rem" alt="Bosque de robles con luz de otoño filtrándose entre las hojas" width="1400" height="1050" loading="lazy" decoding="async">
+        <figcaption class="photo-credit">Fotografía de ambiente · David Gabrić / Unsplash</figcaption>
+      </figure>
     </div>
   </section>
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
       <span class="marquee-seq">
-        <span>Ensalada O Carballo</span><span class="marquee-dot">✦</span>
         <span>Croquetas de jamón ibérico</span><span class="marquee-dot">✦</span>
         <span>Secreto ibérico</span><span class="marquee-dot">✦</span>
+        <span>Arroz meloso de pulpo y gambas</span><span class="marquee-dot">✦</span>
+        <span>Vieiras a la plancha</span><span class="marquee-dot">✦</span>
         <span>Hamburguesa O Carballo</span><span class="marquee-dot">✦</span>
-        <span>Cocina de mercado</span><span class="marquee-dot">✦</span>
         <span>Camino Inglés</span><span class="marquee-dot">✦</span>
       </span>
       <span class="marquee-seq">
-        <span>Ensalada O Carballo</span><span class="marquee-dot">✦</span>
         <span>Croquetas de jamón ibérico</span><span class="marquee-dot">✦</span>
         <span>Secreto ibérico</span><span class="marquee-dot">✦</span>
+        <span>Arroz meloso de pulpo y gambas</span><span class="marquee-dot">✦</span>
+        <span>Vieiras a la plancha</span><span class="marquee-dot">✦</span>
         <span>Hamburguesa O Carballo</span><span class="marquee-dot">✦</span>
-        <span>Cocina de mercado</span><span class="marquee-dot">✦</span>
         <span>Camino Inglés</span><span class="marquee-dot">✦</span>
       </span>
     </div>
@@ -227,8 +236,9 @@
       <p class="eyebrow">La carta</p>
       <h2 data-split-word>Sellada plato a plato.</h2>
       <p class="carta-lead">
-        Selección real de la carta, con sus precios. La cocina cambia según el mercado, así que
-        algunos platos pueden variar de una semana a otra.
+        La carta real, completa, tal y como se sirve en sala — siete apartados, de la ensalada al
+        postre. La cocina cambia según el mercado, así que algunos platos pueden variar de una
+        semana a otra.
       </p>
 
       <div class="carta-group">
@@ -237,48 +247,179 @@
           <article class="carta-stamp">
             <span class="carta-seal">14,50&nbsp;€</span>
             <h4>Ensalada O Carballo</h4>
-            <p>La ensalada de la casa, con la mezcla propia de O Carballo.</p>
+            <p>Selección de vegetales frescos, atún y huevo cocido.<br><em>Fresh seasonal vegetables with tuna and boiled egg.</em></p>
           </article>
           <article class="carta-stamp carta-stamp--tilt">
             <span class="carta-seal">15,50&nbsp;€</span>
             <h4>Ensalada templada de rulo de cabra</h4>
-            <p>Rulo de cabra templado sobre base fresca.</p>
+            <p>Con cebolla caramelizada, nueces y pasas.<br><em>Warm goat cheese salad with caramelized onion, walnuts and raisins.</em></p>
           </article>
           <article class="carta-stamp">
             <span class="carta-seal">16,50&nbsp;€</span>
             <h4>Ensalada de ventresca y queso de Arzúa</h4>
-            <p>Ventresca y queso de Arzúa, producto gallego de cercanía.</p>
+            <p>Con pimientos del piquillo y tomate cherry.<br><em>Tuna belly and Arzúa cheese salad with piquillo peppers.</em></p>
           </article>
         </div>
       </div>
 
       <div class="carta-group">
-        <h3 class="carta-group-title"><iconify-icon icon="solar:chef-hat-linear" aria-hidden="true"></iconify-icon> De la sartén y la brasa</h3>
+        <h3 class="carta-group-title"><iconify-icon icon="solar:chef-hat-linear" aria-hidden="true"></iconify-icon> De la tierra</h3>
         <div class="carta-grid">
           <article class="carta-stamp carta-stamp--tilt">
             <span class="carta-seal">12,50&nbsp;€</span>
-            <h4>Croquetas de jamón ibérico</h4>
-            <p>Caseras, cremosas, hechas en la propia cocina.</p>
+            <h4>Croquetas de jamón ibérico <small>(8 ud)</small></h4>
+            <p>Caseras, cremosas, hechas en la propia cocina.<br><em>Creamy Iberian ham croquettes.</em></p>
           </article>
           <article class="carta-stamp">
             <span class="carta-seal">18,50&nbsp;€</span>
             <h4>Secreto ibérico con patatas</h4>
-            <p>Secreto ibérico a la plancha, con patatas de guarnición.</p>
+            <p>Secreto ibérico a la plancha, con patatas de guarnición.<br><em>Grilled Iberian pork with potatoes.</em></p>
           </article>
           <article class="carta-stamp carta-stamp--tilt">
             <span class="carta-seal">21,50&nbsp;€</span>
-            <h4>Chuleta de vaca fileteada</h4>
-            <p>Chuleta de vaca fileteada en la mesa, para compartir.</p>
+            <h4>Croca de vaca fileteada</h4>
+            <p>Ternera gallega fileteada en la mesa, para compartir.<br><em>Sliced Galician beef steak.</em></p>
           </article>
           <article class="carta-stamp">
             <span class="carta-seal">13,50&nbsp;€</span>
             <h4>Hamburguesa O Carballo</h4>
-            <p>La hamburguesa de la casa, con receta propia.</p>
+            <p>200&nbsp;gr de cerdo Duroc con queso de Arzúa y cebolla caramelizada.<br><em>O Carballo signature burger.</em></p>
           </article>
         </div>
       </div>
 
-      <p class="carta-note"><iconify-icon icon="solar:info-circle-linear" aria-hidden="true"></iconify-icon> Precios de la carta consultada; la cocina de mercado puede traer cambios puntuales — confírmalos en sala.</p>
+      <div class="carta-group">
+        <h3 class="carta-group-title"><iconify-icon icon="mdi:sprout" aria-hidden="true"></iconify-icon> Vegetales</h3>
+        <div class="carta-grid">
+          <article class="carta-stamp">
+            <span class="carta-seal">16,50&nbsp;€</span>
+            <h4>Parrilada de verduras</h4>
+            <p>De temporada, a la brasa.<br><em>Grilled vegetables.</em></p>
+          </article>
+          <article class="carta-stamp carta-stamp--tilt">
+            <span class="carta-seal">12,50&nbsp;€</span>
+            <h4>Hummus con crudités y pan tostado</h4>
+            <p><em>Hummus with crudités.</em></p>
+          </article>
+          <article class="carta-stamp">
+            <span class="carta-seal">16,50&nbsp;€</span>
+            <h4>Burrata cremosa con pesto y mermelada de tomate</h4>
+            <p><em>Creamy burrata with pesto and tomato jam.</em></p>
+          </article>
+        </div>
+      </div>
+
+      <div class="carta-group">
+        <h3 class="carta-group-title"><iconify-icon icon="mdi:fish" aria-hidden="true"></iconify-icon> Del mar</h3>
+        <figure class="photo-frame carta-group-photo">
+          <span class="lqip-bg" aria-hidden="true" style="background-image:url('assets/img/photos/carta-delmar-lqip.jpg')"></span>
+          <img class="lqip-img" src="assets/img/photos/carta-delmar-800.jpg" srcset="assets/img/photos/carta-delmar-800.jpg 800w, assets/img/photos/carta-delmar-1400.jpg 1400w" sizes="(max-width: 900px) 90vw, 68rem" alt="Gambas a la plancha, fotografía de ambiente" width="1400" height="933" loading="lazy" decoding="async">
+          <figcaption class="photo-credit">Fotografía de ambiente / Unsplash</figcaption>
+        </figure>
+        <div class="carta-grid">
+          <article class="carta-stamp carta-stamp--tilt">
+            <span class="carta-seal">13&nbsp;€</span>
+            <h4>Croquetas de camarón <small>(8 ud)</small></h4>
+            <p><em>Creamy shrimp croquettes.</em></p>
+          </article>
+          <article class="carta-stamp">
+            <span class="carta-seal">16,50&nbsp;€</span>
+            <h4>Gambas al ajillo</h4>
+            <p><em>Garlic prawns served in olive oil.</em></p>
+          </article>
+          <article class="carta-stamp carta-stamp--tilt">
+            <span class="carta-seal">18&nbsp;€</span>
+            <h4>Navajas a la plancha</h4>
+            <p><em>Grilled razor clams.</em></p>
+          </article>
+          <article class="carta-stamp">
+            <span class="carta-seal">19,50&nbsp;€</span>
+            <h4>Vieiras a la plancha <small>(8 ud)</small></h4>
+            <p><em>Grilled scallops.</em></p>
+          </article>
+        </div>
+      </div>
+
+      <div class="carta-group">
+        <h3 class="carta-group-title"><iconify-icon icon="mdi:bread-slice" aria-hidden="true"></iconify-icon> Tostas</h3>
+        <figure class="photo-frame carta-group-photo">
+          <span class="lqip-bg" aria-hidden="true" style="background-image:url('assets/img/photos/carta-tostas-lqip.jpg')"></span>
+          <img class="lqip-img" src="assets/img/photos/carta-tostas-800.jpg" srcset="assets/img/photos/carta-tostas-800.jpg 800w, assets/img/photos/carta-tostas-1400.jpg 1400w" sizes="(max-width: 900px) 90vw, 68rem" alt="Tostas variadas, fotografía de ambiente" width="1400" height="2100" loading="lazy" decoding="async">
+          <figcaption class="photo-credit">Fotografía de ambiente · Nacho Carretero Molero / Unsplash</figcaption>
+        </figure>
+        <div class="carta-grid">
+          <article class="carta-stamp">
+            <span class="carta-seal">11,50&nbsp;€</span>
+            <h4>Tosta de jamón y pan tumaca <small>(2 ud)</small></h4>
+            <p><em>Toasted rustic bread with ham and crushed tomato.</em></p>
+          </article>
+          <article class="carta-stamp carta-stamp--tilt">
+            <span class="carta-seal">13,50&nbsp;€</span>
+            <h4>Tosta de rixóns y queso de Arzúa <small>(2 ud)</small></h4>
+            <p><em>Galician pork belly toast with Arzúa cheese.</em></p>
+          </article>
+        </div>
+      </div>
+
+      <div class="carta-group">
+        <h3 class="carta-group-title"><iconify-icon icon="mdi:rice" aria-hidden="true"></iconify-icon> Arroces</h3>
+        <figure class="photo-frame carta-group-photo">
+          <span class="lqip-bg" aria-hidden="true" style="background-image:url('assets/img/photos/carta-arroces-lqip.jpg')"></span>
+          <img class="lqip-img" src="assets/img/photos/carta-arroces-800.jpg" srcset="assets/img/photos/carta-arroces-800.jpg 800w, assets/img/photos/carta-arroces-1400.jpg 1400w" sizes="(max-width: 900px) 90vw, 68rem" alt="Arroz meloso de marisco, fotografía de ambiente" width="1400" height="933" loading="lazy" decoding="async">
+          <figcaption class="photo-credit">Fotografía de ambiente · Armando Brenlha / Unsplash</figcaption>
+        </figure>
+        <div class="carta-grid">
+          <article class="carta-stamp carta-stamp--tilt">
+            <span class="carta-seal">26,50&nbsp;€</span>
+            <h4>Arroz meloso de secreto ibérico y setas</h4>
+            <p><em>Creamy rice with Iberian pork and wild mushrooms.</em></p>
+          </article>
+          <article class="carta-stamp">
+            <span class="carta-seal">29,50&nbsp;€</span>
+            <h4>Arroz meloso con pulpo y gambas</h4>
+            <p><em>Rice with octopus and prawns.</em></p>
+          </article>
+          <article class="carta-stamp carta-stamp--tilt">
+            <span class="carta-seal">28,50&nbsp;€</span>
+            <h4>Arroz negro de chocos con alioli suave</h4>
+            <p><em>Black squid ink rice with mild alioli.</em></p>
+          </article>
+          <article class="carta-stamp">
+            <span class="carta-seal">24,50&nbsp;€</span>
+            <h4>Arroz cremoso de verduras asadas y queso de cabra</h4>
+            <p><em>Creamy roasted vegetable rice with goat cheese.</em></p>
+          </article>
+        </div>
+        <p class="carta-note carta-note--inline"><iconify-icon icon="solar:info-circle-linear" aria-hidden="true"></iconify-icon> Arroces para dos personas — consulta el tiempo de elaboración en sala.</p>
+      </div>
+
+      <div class="carta-group">
+        <h3 class="carta-group-title"><iconify-icon icon="mdi:cupcake" aria-hidden="true"></iconify-icon> Postres</h3>
+        <div class="carta-grid">
+          <article class="carta-stamp">
+            <span class="carta-seal">6&nbsp;€</span>
+            <h4>Tarta de queso al horno con frutos rojos</h4>
+            <p><em>Homemade cheesecake with red fruits.</em></p>
+          </article>
+          <article class="carta-stamp carta-stamp--tilt">
+            <span class="carta-seal">6&nbsp;€</span>
+            <h4>Brownie con helado de mandarina</h4>
+            <p><em>Brownie with tangerine ice cream.</em></p>
+          </article>
+          <article class="carta-stamp">
+            <span class="carta-seal">6&nbsp;€</span>
+            <h4>Mousse de chocolate</h4>
+            <p><em>Chocolate mousse.</em></p>
+          </article>
+          <article class="carta-stamp carta-stamp--tilt">
+            <span class="carta-seal">6&nbsp;€</span>
+            <h4>Yogur cremoso con frutos rojos y miel</h4>
+            <p><em>Yogurt with red fruit and honey.</em></p>
+          </article>
+        </div>
+      </div>
+
+      <p class="carta-note"><iconify-icon icon="solar:info-circle-linear" aria-hidden="true"></iconify-icon> Carta y precios reales, tal y como se sirven en sala; la cocina de mercado puede traer cambios puntuales.</p>
     </div>
   </section>
 
@@ -290,6 +431,12 @@
         Tres ideas simples sostienen la cocina de O Carballo Tapería, sin necesitar más adorno que
         el propio producto.
       </p>
+
+      <figure class="photo-frame cocina-photo">
+        <span class="lqip-bg" aria-hidden="true" style="background-image:url('assets/img/photos/cocina-tapas-lqip.jpg')"></span>
+        <img class="lqip-img" src="assets/img/photos/cocina-tapas-800.jpg" srcset="assets/img/photos/cocina-tapas-800.jpg 800w, assets/img/photos/cocina-tapas-1400.jpg 1400w" sizes="(max-width: 900px) 90vw, 68rem" alt="Tapas de cocina casera, fotografía de ambiente" width="1400" height="1867" loading="lazy" decoding="async">
+        <figcaption class="photo-credit">Fotografía de ambiente · Nacho Carretero Molero / Unsplash</figcaption>
+      </figure>
 
       <div class="cocina-grid">
         <div class="cocina-tile">
@@ -316,31 +463,34 @@
 
   <section id="reconocimientos" class="reconocimientos section-block" data-reveal-group>
     <div class="section-inner">
-      <p class="eyebrow">Reconocimientos</p>
-      <h2 data-split-word>Sin cifra inventada.</h2>
+      <p class="eyebrow">Reseñas</p>
+      <h2 data-split-word>Lo que dicen en Google.</h2>
       <p class="reconocimientos-lead">
-        No mostramos una valoración numérica que no podamos confirmar: la ficha de este negocio en
-        TripAdvisor aún no reúne reseñas verificadas propias. Lo que sí es real y comprobable es su
-        reconocimiento Travellers' Choice.
+        Sin testimonios inventados: esta es la valoración real de la ficha de Google del negocio,
+        tal y como aparece en Google Maps.
       </p>
 
       <div class="reconocimientos-panel">
-        <div class="reconocimientos-badge" aria-hidden="true">
-          <svg viewBox="0 0 96 96">
-            <circle cx="48" cy="48" r="46" fill="none" stroke="var(--sendero)" stroke-width="2" stroke-dasharray="4 5"/>
-            <circle cx="48" cy="48" r="36" fill="var(--marco)"/>
-            <path d="M48 30v20" stroke="#F6F0E4" stroke-width="2" stroke-linecap="round"/>
-            <ellipse cx="42" cy="35" rx="4" ry="5.5" fill="#F6F0E4"/>
-            <ellipse cx="54" cy="35" rx="4" ry="5.5" fill="#F6F0E4"/>
-            <path d="M30 62a18 18 0 0 1 36 0Z" fill="var(--sendero)"/>
-          </svg>
+        <div class="reconocimientos-ring" style="--pct: 98%">
+          <div class="reconocimientos-ring-value"><strong>4,9</strong><span>/ 5</span></div>
         </div>
         <div class="reconocimientos-copy">
-          <p class="reconocimientos-tag"><iconify-icon icon="simple-icons:tripadvisor" aria-hidden="true"></iconify-icon> TripAdvisor</p>
-          <p class="reconocimientos-text">Distinguido con el sello <strong>Travellers' Choice</strong>, el reconocimiento que TripAdvisor otorga a los negocios mejor valorados de forma consistente por sus visitantes.</p>
-          <a class="btn btn-ghost" href="https://www.tripadvisor.es/Restaurant_Review-g1064050-d34619235-Reviews-O_Carballo_Taperia-Oroso_Province_of_A_Coruna_Galicia.html" target="_blank" rel="noopener noreferrer">
-            <iconify-icon icon="simple-icons:tripadvisor" aria-hidden="true"></iconify-icon>
-            <span>Ver la ficha en TripAdvisor</span>
+          <span class="reconocimientos-stars" aria-hidden="true">
+            <iconify-icon icon="solar:star-bold"></iconify-icon>
+            <iconify-icon icon="solar:star-bold"></iconify-icon>
+            <iconify-icon icon="solar:star-bold"></iconify-icon>
+            <iconify-icon icon="solar:star-bold"></iconify-icon>
+            <iconify-icon icon="solar:star-bold"></iconify-icon>
+          </span>
+          <p class="reconocimientos-text">637 reseñas en Google. El negocio también ofrece:</p>
+          <ul class="reconocimientos-chips">
+            <li><iconify-icon icon="solar:sun-2-linear" aria-hidden="true"></iconify-icon>Terraza</li>
+            <li><iconify-icon icon="mdi:sprout" aria-hidden="true"></iconify-icon>Opciones vegetarianas</li>
+            <li><iconify-icon icon="solar:microphone-3-linear" aria-hidden="true"></iconify-icon>Música en directo</li>
+          </ul>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=O+Carballo+Taper%C3%ADa%2C+Avenida+da+Grabanxa+29%2C+15888+Sig%C3%BCeiro" target="_blank" rel="noopener noreferrer">
+            <iconify-icon icon="logos:google-icon" aria-hidden="true"></iconify-icon>
+            <span>Ver reseñas en Google (4,9★)</span>
           </a>
         </div>
       </div>
@@ -391,7 +541,7 @@
           </li>
           <li>
             <span class="item-icon"><iconify-icon icon="solar:phone-linear" aria-hidden="true"></iconify-icon></span>
-            <a href="tel:+34690020286">690 02 02 86</a>
+            <a href="tel:+34881302243">881 30 22 43</a>
           </li>
           <li>
             <span class="item-icon"><iconify-icon icon="solar:letter-linear" aria-hidden="true"></iconify-icon></span>
@@ -456,10 +606,7 @@
   <div class="section-inner footer-inner">
     <div class="footer-brand">
       <a class="brand" href="#top" aria-label="O Carballo Tapería, ir al inicio">
-        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-          <circle cx="16" cy="16" r="15" fill="#1F3F5C"/>
-          <path d="M6 22a10 10 0 0 1 20 0Z" fill="#D9A21B" stroke="#14293C" stroke-width="1"/>
-        </svg>
+        <img class="brand-mark" src="assets/img/logo/mark-white.png" alt="" width="30" height="30">
         <span>O Carballo <em>Tapería</em></span>
       </a>
       <p>Cocina casera de mercado en Sigüeiro, en la última etapa del Camino Inglés a Santiago.</p>
@@ -470,7 +617,7 @@
         <li><a href="#etapa">La última etapa</a></li>
         <li><a href="#carta">La carta</a></li>
         <li><a href="#cocina">Cocina de mercado</a></li>
-        <li><a href="#reconocimientos">Reconocimientos</a></li>
+        <li><a href="#reconocimientos">Reseñas</a></li>
         <li><a href="#encuentranos">Encuéntranos</a></li>
       </ul>
     </nav>
@@ -480,9 +627,9 @@
         <iconify-icon icon="solar:map-point-linear" aria-hidden="true"></iconify-icon>
         Avenida da Grabanxa, 29 · Sigüeiro
       </a>
-      <a href="tel:+34690020286">
+      <a href="tel:+34881302243">
         <iconify-icon icon="solar:phone-linear" aria-hidden="true"></iconify-icon>
-        690 02 02 86
+        881 30 22 43
       </a>
       <a href="https://wa.me/34690020286" target="_blank" rel="noopener noreferrer">
         <iconify-icon icon="ri:whatsapp-fill" aria-hidden="true"></iconify-icon>
@@ -529,7 +676,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
-<script src="js/scene-camino.js"></script>
-<script src="js/main.js"></script>
+<script src="js/scene-camino.js?v=3"></script>
+<script src="js/main.js?v=3"></script>
 </body>
 </html>

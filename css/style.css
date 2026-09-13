@@ -1,35 +1,41 @@
 /* ---------- Tokens ----------
-   Paleta propia para O Carballo Tapería. No hay logo ni manual de marca
-   disponible (Instagram/Facebook bloquean el scraping), así que la paleta
-   se apoya en dos fuentes honestas y reales: la madera del roble ("carballo"
-   en gallego, el propio nombre del negocio) y la señalización pública del
-   Camino de Santiago — el azul de las señales direccionales y el amarillo
-   de las flechas/veneras — ya que el negocio está confirmado en el trazado
-   del Camino Inglés (turismo.gal). Un verde de carballeira/fraga completa
-   la paleta. Deliberadamente distinta de: coral/cielo/lima (Melao), verde
+   Paleta actualizada a partir del logo y la carta REALES que el cliente
+   aportó (12-09-2026): un emblema en blanco y negro (hoja de roble sobre
+   fondo negro) y una carta en papel crema con ilustraciones de bellota en
+   dorado/marrón. Sustituye a la paleta inicial (azul+amarillo de
+   señalización del Camino, inventada por no tener logo todavía) — se
+   mantienen los MISMOS nombres de variable para no reescribir el CSS, pero
+   los valores ahora están sacados de los assets reales:
+   - --tinta / --marco*: negro real del logo (`assets/img/logo/logo.jpg`).
+   - --papel / --piedra*: crema real de la carta.
+   - --sendero* / --roble*: dorado y marrón de la ilustración de hoja y
+     bellotas que decora cada página de la carta.
+   - --fraga*: verde-oliva de apoyo, derivado de la misma familia cálida.
+   Deliberadamente distinta de: coral/cielo/lima (Melao), verde
    río/madera/dorado (A Taberna do Rio), y piedra/barro/vino/oliva
-   (O Logradouro) — aquí el azul de camino y el amarillo de sendero son
-   tonos que ningún sitio hermano usa. */
+   (O Logradouro). El azul de señalización del Camino que tenía la versión
+   anterior queda solo como detalle puntual en el propio icono de venera
+   del hero, no como color de marca. */
 :root {
-  --papel: #F6F0E4;
+  --papel: #F4EEDF;
   --piedra: #EAE1CC;
   --piedra-2: #DED2B4;
-  --tinta: #241C15;
-  --tinta-suave: #55483A;
-  --tinta-tenue: #8B7C68;
+  --tinta: #17130D;
+  --tinta-suave: #4A4136;
+  --tinta-tenue: #857A68;
 
-  --roble: #8B6239;
-  --roble-hondo: #5F4224;
-  --roble-tenue: #D9BFA0;
-  --marco: #1F3F5C;
-  --marco-hondo: #14293C;
-  --marco-tenue: #7C9BB3;
-  --sendero: #D9A21B;
-  --sendero-hondo: #A97A0F;
-  --sendero-tenue: #F0D28C;
-  --fraga: #46592E;
-  --fraga-hondo: #2F3D1E;
-  --fraga-tenue: #B9C79E;
+  --roble: #8A5A34;
+  --roble-hondo: #5E3B1F;
+  --roble-tenue: #D8B98F;
+  --marco: #1F1A12;
+  --marco-hondo: #0B0906;
+  --marco-tenue: #A79C87;
+  --sendero: #B7923A;
+  --sendero-hondo: #8C6E26;
+  --sendero-tenue: #E6CE93;
+  --fraga: #6B5B22;
+  --fraga-hondo: #453A16;
+  --fraga-tenue: #C9BE8E;
 
   --linea: color-mix(in srgb, var(--tinta) 13%, transparent);
   --linea-suave: color-mix(in srgb, var(--tinta) 8%, transparent);
@@ -303,6 +309,58 @@ h2 {
 .encuentranos .btn-ghost, .follow-cta .btn-ghost { color: var(--piedra); border-color: color-mix(in srgb, var(--piedra) 30%, transparent); }
 .btn-ghost:hover, .btn-ghost:focus-visible { border-color: var(--marco); color: var(--marco); }
 .encuentranos .btn-ghost:hover, .follow-cta .btn-ghost:hover { color: var(--sendero-tenue); border-color: var(--sendero-tenue); }
+
+/* ---------- Fotografía de ambiente ----------
+   El negocio no facilitó fotos propias del local/platos, pero el usuario
+   autorizó usar fotografía de banco libre (Unsplash License) acorde al
+   tipo de cocina, siempre que quede clara su procedencia — ver créditos en
+   README.md y `scripts/process_photos.py`. Patrón blur-up real (LQIP en
+   archivo, no base64 a mano) igual que en `webtest`. */
+.photo-frame {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -30px rgba(15, 10, 8, 0.5);
+}
+.photo-frame .lqip-bg {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: saturate(1.05);
+}
+.photo-frame img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  filter: saturate(1.04) contrast(1.02);
+}
+.photo-frame img.is-loaded { opacity: 1; }
+.photo-credit {
+  position: absolute;
+  right: 0.7rem; bottom: 0.6rem;
+  z-index: 2;
+  font-size: 0.62rem;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--papel) 88%, transparent);
+  background: color-mix(in srgb, var(--tinta) 55%, transparent);
+  padding: 0.25rem 0.6rem;
+  border-radius: 100px;
+}
+.noscript-full .lqip-img { opacity: 1 !important; }
+
+.etapa-photo { height: clamp(9rem, 18vw, 15rem); margin-top: 3.5rem; }
+.cocina-photo { height: clamp(9rem, 18vw, 15rem); margin: 3rem 0 0; }
+.carta-group-photo {
+  width: 15rem;
+  aspect-ratio: 4 / 3;
+  margin: 0 0 1.5rem;
+}
+@media (max-width: 640px) {
+  .etapa-photo, .cocina-photo { height: 9rem; }
+  .carta-group-photo { width: 11rem; }
+}
 
 /* ---------- Hero ----------
    Escena de sendero a sangre completa (canvas 2D con un camino que serpentea
@@ -600,7 +658,10 @@ h2 {
   box-shadow: 0 8px 18px -10px rgba(20, 41, 60, 0.55);
 }
 .carta-stamp h4 { font-family: var(--display); font-size: 1.12rem; font-weight: 600; padding-right: 3.5rem; }
+.carta-stamp h4 small { font-family: var(--sans); font-weight: 500; font-size: 0.72rem; color: var(--tinta-tenue); }
 .carta-stamp p { margin-top: 0.55rem; color: var(--tinta-suave); font-size: 0.86rem; line-height: 1.5; }
+.carta-stamp p em { display: inline-block; margin-top: 0.3rem; font-style: italic; color: var(--tinta-tenue); font-size: 0.8rem; }
+.carta-note--inline { margin-top: 1.75rem; }
 
 .carta-note {
   margin-top: 2.5rem;
@@ -654,10 +715,13 @@ h2 {
   .cocina-grid { grid-template-columns: 1fr; }
 }
 
-/* ---------- Reconocimientos: sello circular propio en vez del anillo de
-   valoración con cifra de A Taberna do Rio/O Logradouro — aquí no hay
-   cifra verificable que mostrar, así que el foco es el sello real de
-   TripAdvisor, no un número. */
+/* ---------- Reseñas: anillo de valoración con la cifra REAL de Google
+   (4,9★ / 637 reseñas, confirmada por el propio cliente sobre su ficha de
+   Google Maps — ver README) — mismo componente de datos que A Taberna do
+   Rio/O Logradouro (es una pieza del toolkit, no de identidad, reutilizar
+   no rompe la regla de "no clonar estructura"). Sustituye al sello sin
+   cifra de la versión anterior, que asumía —incorrectamente— que no había
+   reseñas reales en ninguna plataforma. */
 .reconocimientos { background: var(--piedra); }
 .reconocimientos-lead { margin-top: 1.25rem; max-width: 42rem; color: var(--tinta-suave); font-size: 1.02rem; line-height: 1.6; }
 .reconocimientos-panel {
@@ -670,25 +734,52 @@ h2 {
   border-radius: 1.25rem;
   padding: clamp(1.75rem, 4vw, 2.5rem);
 }
-.reconocimientos-badge { width: 6.5rem; height: 6.5rem; flex-shrink: 0; }
+.reconocimientos-ring {
+  --pct: 98%;
+  flex-shrink: 0;
+  width: 8.5rem; height: 8.5rem;
+  border-radius: 50%;
+  background: conic-gradient(var(--sendero) var(--pct), color-mix(in srgb, var(--tinta) 10%, transparent) 0);
+  display: flex; align-items: center; justify-content: center;
+}
+.reconocimientos-ring-value {
+  width: 6.7rem; height: 6.7rem;
+  border-radius: 50%;
+  background: var(--papel);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.reconocimientos-ring-value strong { font-family: var(--display); font-size: 2rem; font-weight: 600; color: var(--tinta); }
+.reconocimientos-ring-value span { margin-top: 0.2rem; font-size: 0.8rem; color: var(--tinta-tenue); }
 .reconocimientos-copy { flex: 1 1 auto; min-width: 0; }
-.reconocimientos-tag {
+.reconocimientos-stars { display: inline-flex; gap: 2px; color: var(--sendero-hondo); font-size: 1.1rem; }
+.reconocimientos-text { margin-top: 0.6rem; color: var(--tinta-suave); font-size: 0.98rem; }
+.reconocimientos-chips {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.reconocimientos-chips li {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--marco);
+  gap: 0.45rem;
+  background: var(--piedra-2);
+  border-radius: 100px;
+  padding: 0.5rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--tinta-suave);
 }
-.reconocimientos-tag iconify-icon { font-size: 1.15rem; color: #00AF87; }
-.reconocimientos-text { margin-top: 0.7rem; color: var(--tinta-suave); font-size: 1rem; line-height: 1.6; max-width: 34rem; }
+.reconocimientos-chips iconify-icon { font-size: 1.05rem; color: var(--sendero-hondo); }
 .reconocimientos-panel .btn { margin-top: 1.4rem; }
 
 @media (max-width: 720px) {
   .reconocimientos-panel { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-  .reconocimientos-badge { align-self: center; }
+  .reconocimientos-ring { align-self: center; }
 }
 
 /* ---------- Encuéntranos ---------- */
@@ -995,31 +1086,48 @@ body.has-cookie-banner .whatsapp-fab { bottom: 7.5rem; }
   body.has-cookie-banner .whatsapp-fab { bottom: 13rem; }
 }
 
-/* ---------- Cursor personalizado ---------- */
-.cursor-ring {
+/* ---------- Cursor personalizado ----------
+   `mix-blend-mode: difference` sobre un color base blanco en vez de un
+   `border-color` fijo (`var(--marco)`): con la paleta real (negro del logo
+   real como color de marca), un anillo negro fijo se volvía invisible
+   sobre cualquier sección oscura (hero, cocina, encuéntranos, overlay-nav,
+   pie). La inversión por diferencia garantiza contraste automáticamente
+   sobre cualquier fondo, claro u oscuro, sin tener que detectar la sección
+   por JS — el punto central cambia de color él solo según lo que tenga
+   debajo. */
+.cursor-ring, .cursor-dot {
   position: fixed;
   top: 0; left: 0;
-  width: 1.6rem; height: 1.6rem;
-  margin: -0.8rem;
   border-radius: 50%;
-  border: 1.5px solid var(--marco);
   pointer-events: none;
   z-index: 300;
   opacity: 0;
-  transition: opacity 0.2s ease, width 0.25s ease, height 0.25s ease, margin 0.25s ease, border-color 0.25s ease;
+  mix-blend-mode: difference;
 }
-.cursor-ring.is-visible { opacity: 0.85; }
+.cursor-ring {
+  width: 1.6rem; height: 1.6rem;
+  margin: -0.8rem;
+  border: 1.5px solid #FFFFFF;
+  transition: opacity 0.2s ease, width 0.25s ease, height 0.25s ease, margin 0.25s ease;
+}
+.cursor-dot {
+  width: 5px; height: 5px;
+  margin: -2.5px;
+  background: #FFFFFF;
+  transition: opacity 0.2s ease;
+}
+.cursor-ring.is-visible, .cursor-dot.is-visible { opacity: 0.9; }
 .cursor-ring.is-hover {
   width: 2.6rem; height: 2.6rem;
   margin: -1.3rem;
-  border-color: var(--sendero-hondo);
-  background: color-mix(in srgb, var(--sendero) 14%, transparent);
+  background: color-mix(in srgb, white 18%, transparent);
 }
+.cursor-dot.is-hover { opacity: 0; }
 body.custom-cursor-active, body.custom-cursor-active a, body.custom-cursor-active button {
   cursor: none;
 }
 @media (max-width: 900px), (pointer: coarse) {
-  .cursor-ring { display: none; }
+  .cursor-ring, .cursor-dot { display: none; }
 }
 
 /* ---------- Cookie banner ---------- */
