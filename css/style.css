@@ -250,14 +250,15 @@ h2 {
 /* ---------- Overlay nav ---------- */
 .overlay-nav {
   position: fixed;
-  inset: 0;
-  z-index: 160;
+  top: var(--nav-h);
+  left: 0; right: 0; bottom: 0;
+  z-index: 95;
   background: var(--marco-hondo);
   color: var(--papel);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 1.5rem 3rem;
+  padding: 2rem 1.5rem 3rem;
 }
 .overlay-nav[hidden] { display: none; }
 .overlay-nav nav { width: 100%; max-width: 34rem; }
