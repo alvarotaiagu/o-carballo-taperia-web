@@ -244,7 +244,7 @@ h2 {
 @media (max-width: 640px) {
   .km-counter { width: 3.8rem; height: 3.8rem; left: 1rem; bottom: 5.5rem; }
   .km-counter-value { font-size: 1.1rem; }
-  .km-counter-unit { font-size: 0.42rem; }
+  .km-counter-unit { font-size: 0.4rem; letter-spacing: 0.02em; max-width: 2.7rem; }
 }
 
 /* ---------- Overlay nav ---------- */
